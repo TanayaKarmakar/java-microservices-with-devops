@@ -21,5 +21,4 @@ public class CouponController {
         return couponRepository.findByCode(code);
     }
 
-
 }
