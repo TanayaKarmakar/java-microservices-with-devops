@@ -3,10 +3,22 @@ services:
   web:
     image: httpd
     container_name: mywebserver
+    networks: 
+      - webnetwork
     ports: 
       - "8080:80"
+    # volumes: 
+    #   -myvol:/data 
   db:
     image: redis
     container_name: myredis
     ports:
-      - "6666:6379"
+      - "6667:6379"
+networks: 
+  webnetwork:
+    driver: bridge
+  dbnetwork:
+    driver: bridge
+# volumes: 
+#   myvol:
+
