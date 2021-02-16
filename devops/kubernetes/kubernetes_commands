@@ -1,0 +1,49 @@
+important kubernetes command:-
+
+kubectl run firstpod --image=nginx
+
+kubectl get pods
+
+kubectl describe pod firstpod
+
+kubectl exec -it -- /bin/bash
+
+kubectl delete pod firstpod
+
+kubectl get pod firstpod -o yaml
+
+kubectl create -f firstpod.yml
+
+kubectl exec -it firstpod --container db -- /bin/bash //This will actually go into the container if multiple containers are launched in a pod
+
+kubectl delete all --all //delete all pods
+
+kubectl delete -f firstpod.yml //whatever containers present in the yml file will be deleted
+
+kubectl get all --show-labels
+
+kubectl get pods -l app=fp //label based selection
+
+kubectl create ns firstns //creating namespace
+
+kubectl create -f firstpod.yml --namespace=firstns //creating a pod under firstns namespace
+
+kubectl get pods --namespace firstns //fetching all pods under firstns namespace
+
+kubectl config set-context --current --namespace firstns // kubernetes config changes
+
+kubectl create -f firstpod.yml --dry-run=client //do a dry run on a client
+
+kubectl explain pod //shows documentation for pod
+
+Three ways to access kubernetes cluster
+- Dashboard
+- Command line (kubectl command)
+- Rest API
+
+
+minikube dashboard --opens the kubernetes dashboard
+
+kubectl get deployments -- get all deployments from kubernetes
+
+
