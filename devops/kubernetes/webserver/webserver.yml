@@ -6,6 +6,11 @@ metadata:
         app: httpd
 spec:
     replicas: 2
+    # strategy:
+    #     type: RollingUpdate
+    #     rollingUpdate:
+    #         maxSurge: 3
+    #         maxUnavailable: 4
     selector:
         matchLabels:
             app: httpd
@@ -16,6 +21,29 @@ spec:
         spec:
             containers:
                 - name: myhttpd
-                  image: httpd
+                  image: httpd:2
                   ports:
                      - containerPort: 80
+                  volumeMounts:
+                     - name: demovol
+                       mountPath: /data
+                     - name: demo-configmap-vol
+                       mountPath: /etc/config
+                     - name: my-secret
+                       mountPath: /etc/mysecrets
+                     - name: demo-pvc
+                       mountPath: /data/clustervol
+            volumes:
+                - name: demovol
+                  hostPath:
+                        path: /data
+                        type: Directory
+                - name: demo-configmap-vol 
+                  configMap:
+                        name: demo-configmap
+                - name: my-secret
+                  secret:
+                        secretName: demo-secret
+                - name: demo-pvc
+                  persistentVolumeClaim:
+                      claimName: demo-pvc

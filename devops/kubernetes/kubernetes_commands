@@ -46,4 +46,19 @@ minikube dashboard --opens the kubernetes dashboard
 
 kubectl get deployments -- get all deployments from kubernetes
 
+kubectl replace -f webserver.yml -- replace the deployment
+
+kubectl describe deploy mywebserver -- describe the deployment
+
+kubectl rollout history deployment -- history of deployment
+
+kubectl rollout history deployment mywebserver --revision=2  --shows information of a particular rollout
+
+kubectl rollout undo deployment mywebserver --to-revision=1 --rolling back a particular deployment
+
+kubectl scale deployment mywebserver --replicas=20 --manual scaling 
+
+kubectl get pv -- lists down the persistent volume
+
+kubectl create -f demo-persistent-volume.yml -- creating a persistent volume
 
