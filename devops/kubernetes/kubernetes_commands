@@ -62,3 +62,8 @@ kubectl get pv -- lists down the persistent volume
 
 kubectl create -f demo-persistent-volume.yml -- creating a persistent volume
 
+kubectl create -f docker-mysql-configmap.yml,docker-mysql-deployment.yml,docker-mysql-service.yml
+
+kubectl create -f coupon-service-deployment.yml,coupon-service-svc.yml
+
+kubectl create -f product-service-deployment.yml,product-service-svc.yml
