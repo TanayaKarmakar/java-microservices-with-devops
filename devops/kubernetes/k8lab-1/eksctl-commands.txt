@@ -1,0 +1,7 @@
+1. Creating Cluster
+
+eksctl create cluster --name example-voting-app --version 1.18 --region us-east-1 --nodegroup-name voting-app-nodes --node-type t2.micro --nodes 2
+
+2. Deleting a cluster
+
+eksctl delete cluster --name example-voting-app --region us-east-1
